@@ -6,156 +6,38 @@
     <title>Projetos | Manual do Recém-Nascido</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
-            min-height: 100vh;
-        }
-
-        .header {
-            text-align: center;
-            padding: 48px 20px 32px;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border-bottom: 1px solid #1e293b;
-        }
-
-        .header h1 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #f8fafc;
-            margin-bottom: 8px;
-        }
-
-        .header p {
-            font-size: 15px;
-            color: #94a3b8;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 32px 20px 60px;
-        }
-
-        .section-title {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #64748b;
-            margin-bottom: 16px;
-            padding-left: 4px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 24px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            border-color: #475569;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-        }
-
-        .card-icon {
-            font-size: 32px;
-            line-height: 1;
-        }
-
-        .card-title {
-            font-size: 17px;
-            font-weight: 600;
-            color: #f1f5f9;
-        }
-
-        .card-desc {
-            font-size: 13px;
-            color: #94a3b8;
-            line-height: 1.5;
-        }
-
-        .card-url {
-            font-size: 11px;
-            color: #475569;
-            font-family: 'SF Mono', 'Fira Code', monospace;
-            margin-top: auto;
-            padding-top: 8px;
-            border-top: 1px solid #334155;
-        }
-
-        .badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 3px 8px;
-            border-radius: 6px;
-        }
-
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+        .header { text-align: center; padding: 48px 20px 32px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-bottom: 1px solid #1e293b; }
+        .header h1 { font-size: 28px; font-weight: 700; color: #f8fafc; margin-bottom: 8px; }
+        .header p { font-size: 15px; color: #94a3b8; }
+        .container { max-width: 900px; margin: 0 auto; padding: 32px 20px 60px; }
+        .section-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #64748b; margin-bottom: 16px; padding-left: 4px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 40px; }
+        .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 12px; position: relative; overflow: hidden; }
+        .card:hover { border-color: #475569; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .card-icon { font-size: 32px; line-height: 1; }
+        .card-title { font-size: 17px; font-weight: 600; color: #f1f5f9; }
+        .card-desc { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+        .card-url { font-size: 11px; color: #475569; font-family: 'SF Mono', 'Fira Code', monospace; margin-top: auto; padding-top: 8px; border-top: 1px solid #334155; }
+        .badge { position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 6px; }
         .badge-live { background: #065f46; color: #6ee7b7; }
         .badge-interno { background: #1e3a5f; color: #7dd3fc; }
-        .badge-redirect { background: #3b0764; color: #d8b4fe; }
-
-        /* Color accents per card */
         .card[data-color="pink"] { border-left: 3px solid #f472b6; }
         .card[data-color="purple"] { border-left: 3px solid #a78bfa; }
         .card[data-color="blue"] { border-left: 3px solid #60a5fa; }
         .card[data-color="green"] { border-left: 3px solid #34d399; }
-        .card[data-color="orange"] { border-left: 3px solid #fb923c; }
         .card[data-color="yellow"] { border-left: 3px solid #fbbf24; }
         .card[data-color="cyan"] { border-left: 3px solid #22d3ee; }
-        .card[data-color="red"] { border-left: 3px solid #f87171; }
-
-        .footer {
-            text-align: center;
-            padding: 24px 20px;
-            color: #475569;
-            font-size: 12px;
-            border-top: 1px solid #1e293b;
-        }
-
-        .footer span { color: #64748b; }
-
-        @media (max-width: 600px) {
-            .grid { grid-template-columns: 1fr; }
-            .header h1 { font-size: 22px; }
-            .header { padding: 32px 16px 24px; }
-            .container { padding: 24px 16px 40px; }
-        }
+        .footer { text-align: center; padding: 24px 20px; color: #475569; font-size: 12px; border-top: 1px solid #1e293b; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .header h1 { font-size: 22px; } .header { padding: 32px 16px 24px; } .container { padding: 24px 16px 40px; } }
     </style>
 </head>
 <body>
-
 <div class="header">
     <h1>Manual do Recem-Nascido</h1>
     <p>Hub de projetos &mdash; Dream Baby</p>
 </div>
-
 <div class="container">
-
     <div class="section-title">Dashboards & Ferramentas</div>
     <div class="grid">
         <a class="card" data-color="blue" href="https://dash.manualdorecemnascido.com.br" target="_blank">
@@ -165,7 +47,6 @@
             <div class="card-desc">Dashboard de campanhas Meta Ads com assistente IA, alertas e relatorio diario no WhatsApp.</div>
             <div class="card-url">dash.manualdorecemnascido.com.br</div>
         </a>
-
         <a class="card" data-color="pink" href="https://meteorico.manualdorecemnascido.com.br" target="_blank">
             <span class="badge badge-live">Live</span>
             <div class="card-icon">🚀</div>
@@ -173,34 +54,23 @@
             <div class="card-desc">Dashboard do funil de lancamento meteorico. Metricas, cronograma e gestao dos clubes Tete e Soninho.</div>
             <div class="card-url">meteorico.manualdorecemnascido.com.br</div>
         </a>
-
-        <a class="card" data-color="green" href="https://brunotropolis.github.io/buscador-geek/" target="_blank">
-            <span class="badge badge-interno">Interno</span>
-            <div class="card-icon">🔍</div>
-            <div class="card-title">Buscador Geek</div>
-            <div class="card-desc">Formulario de cadastro de ofertas para os canais de WhatsApp. Suporta ML, Amazon e Shopee.</div>
-            <div class="card-url">brunotropolis.github.io/buscador-geek</div>
-        </a>
-
-        <a class="card" data-color="orange" href="https://brunotropolis.github.io/pelada-manager/" target="_blank">
-            <span class="badge badge-interno">Interno</span>
-            <div class="card-icon">⚽</div>
-            <div class="card-title">Pelada Manager</div>
-            <div class="card-desc">Gerenciador de pelada: cadastro de jogadores, confirmacao de presenca, sorteio de times e avaliacao.</div>
-            <div class="card-url">brunotropolis.github.io/pelada-manager</div>
-        </a>
-    </div>
-
-    <div class="section-title">Paginas Publicas</div>
-    <div class="grid">
-        <a class="card" data-color="purple" href="https://quiz.manualdorecemnascido.com.br" target="_blank">
+        <a class="card" data-color="purple" href="https://dashquiz.manualdorecemnascido.com.br" target="_blank">
             <span class="badge badge-live">Live</span>
             <div class="card-icon">🧒</div>
+            <div class="card-title">Dashboard Quiz Sono</div>
+            <div class="card-desc">Dashboard do quiz de sono do bebe. Metricas, perfis identificados e captacao de leads.</div>
+            <div class="card-url">dashquiz.manualdorecemnascido.com.br</div>
+        </a>
+    </div>
+    <div class="section-title">Paginas Publicas</div>
+    <div class="grid">
+        <a class="card" data-color="cyan" href="https://quiz.manualdorecemnascido.com.br" target="_blank">
+            <span class="badge badge-live">Live</span>
+            <div class="card-icon">✨</div>
             <div class="card-title">Quiz Sono do Bebe</div>
             <div class="card-desc">Quiz interativo que identifica o perfil de sono do bebe. Versao publica para captacao de leads.</div>
             <div class="card-url">quiz.manualdorecemnascido.com.br</div>
         </a>
-
         <a class="card" data-color="yellow" href="https://cursos.manualdorecemnascido.com.br" target="_blank">
             <span class="badge badge-live">Live</span>
             <div class="card-icon">🎓</div>
@@ -209,35 +79,12 @@
             <div class="card-url">cursos.manualdorecemnascido.com.br</div>
         </a>
     </div>
-
-    <div class="section-title">Redirects (Clubes WhatsApp)</div>
-    <div class="grid">
-        <a class="card" data-color="pink" href="https://clubedotete.manualdorecemnascido.com.br" target="_blank">
-            <span class="badge badge-redirect">Redirect</span>
-            <div class="card-icon">🤱</div>
-            <div class="card-title">Clube do Tete</div>
-            <div class="card-desc">Redirect para o grupo WhatsApp ativo do funil de amamentacao.</div>
-            <div class="card-url">clubedotete.manualdorecemnascido.com.br</div>
-        </a>
-
-        <a class="card" data-color="purple" href="https://clubedosono.manualdorecemnascido.com.br" target="_blank">
-            <span class="badge badge-redirect">Redirect</span>
-            <div class="card-icon">😴</div>
-            <div class="card-title">Clube do Soninho</div>
-            <div class="card-desc">Redirect para o grupo WhatsApp ativo do funil de sono do bebe.</div>
-            <div class="card-url">clubedosono.manualdorecemnascido.com.br</div>
-        </a>
-    </div>
-
 </div>
-
 <div class="footer">
     <span>Atualizado em <span id="lastUpdate"></span></span> &middot; Dream Baby
 </div>
-
 <script>
     document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
 </script>
-
 </body>
 </html>
